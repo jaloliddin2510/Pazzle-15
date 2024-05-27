@@ -5,4 +5,6 @@
     <color name="gold">#FFD700</color>
     <color name="sienna">#8B4513</color>
     <color name="grey">#3E3D3D</color>
+    <color name="transparent1">#2D5B5B5B</color>
+
 </resources>
