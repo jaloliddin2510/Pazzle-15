@@ -17,7 +17,6 @@ class Adapter(
     fun loadData(data: List<Model>) {
         dataListItem.clear()
         dataListItem.addAll(data)
-        emptyCont = dataListItem.find { it.number == -1 }!!
         notifyDataSetChanged()
     }
 
@@ -73,6 +72,11 @@ class Adapter(
 
         fun bind(model: Model) {
             tvNumber.text = model.number.toString()
+
+            // Ma'lumotlar ro'yxatida bo'sh konteynerni topamiz.
+            val emptyCont: Model? = dataListItem.find { it.number == -1 }
+
+            // Element ko'rinishiga OnClickListener o'rnatamiz.
             item.setOnClickListener {
 
                 if (model != emptyCont) {
