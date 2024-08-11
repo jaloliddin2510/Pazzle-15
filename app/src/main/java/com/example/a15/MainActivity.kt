@@ -97,6 +97,13 @@ class MainActivity : AppCompatActivity() {
     fun finishFragment() {
         val finishFragment = FinishFragment()
         replaceFragment(finishFragment)
+        invisible()
+    }
+    fun visible(){
+        binding.llGameMode.visibility=View.VISIBLE
+    }
+    fun invisible(){
+        binding.llGameMode.visibility=View.GONE
     }
     fun actionFragment3x3(){
         val fragment3x3=Fragment3x3()

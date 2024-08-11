@@ -9,14 +9,12 @@
     <!--Records pause time type-->
 
     <androidx.cardview.widget.CardView
-
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_above="@id/rl_fragments"
         android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="50dp"
         android:backgroundTint="@color/grey"
-        android:onClick="onClickRefresh"
         app:cardCornerRadius="25dp"
         tools:ignore="SpeakableTextPresentCheck">
 
@@ -24,22 +22,14 @@
             android:id="@+id/refresh_cv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/refresh" />
+            android:background="@drawable/refresh"
+            tools:ignore="ContentDescription" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:layout_width="210dp"
         android:layout_height="50dp"
         android:layout_above="@id/rl_fragments"
-        android:layout_centerHorizontal="true"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginBottom="50dp"
-        android:backgroundTint="@color/grey"
-        app:cardCornerRadius="20dp">
-    <androidx.cardview.widget.CardView
-        android:layout_width="210dp"
-        android:layout_height="50dp"
-        android:layout_above="@id/fragmentContainerView"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="50dp"
@@ -51,7 +41,8 @@
             android:layout_height="40dp"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="5dp"
-            android:background="@drawable/timer" />
+            android:background="@drawable/timer"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/time_tv"
@@ -62,19 +53,11 @@
             android:layout_marginEnd="20dp"
             android:text="0 : 00 : 00"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            tools:ignore="HardcodedText" />
 
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_above="@id/fragmentContainerView"
-        android:layout_alignParentEnd="true"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginBottom="45dp"
-        android:backgroundTint="@color/grey"
-        app:cardCornerRadius="25dp">
     <androidx.cardview.widget.CardView
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -90,31 +73,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/pause"
-            android:onClick="onClickPause" />
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
     </androidx.cardview.widget.CardView>
-    <!--Fragment    -->
-    <!--Fragment    -->
-    <!--Fragment    -->
-    <RelativeLayout
-        android:id="@+id/fragmentContainerView"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
-        android:layout_centerInParent="true">
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragmentContainerView1"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            android:layout_width="400dp"
-            android:layout_height="400dp"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/nav_host" />
-    </RelativeLayout>
-        <ImageView
-            android:id="@+id/pause_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/pause"
-            android:onClick="onClickPause" />
-    </androidx.cardview.widget.CardView>
+
     <!--Fragment    -->
     <!--Fragment    -->
     <!--Fragment    -->
@@ -129,43 +90,30 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </RelativeLayout>
-
-
     <!--Fragment    -->
     <!--Fragment    -->
     <!--Fragment    -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@id/fragmentContainerView"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="50dp"
-        android:weightSum="3">
-    <!--Fragment    -->
-    <!--Fragment    -->
-    <!--Fragment    -->
-    <LinearLayout
+        android:id="@+id/ll_game_mode"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@id/rl_fragments"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="50dp"
-        android:weightSum="3">
+        android:orientation="horizontal"
+        android:weightSum="3"
+        tools:ignore="TextSizeCheck">
+
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/puzzle_3x3"
             android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="10dp"
+            android:layout_height="match_parent"
+            android:layout_margin="1dp"
             android:layout_weight="1"
-            app:cardCornerRadius="25dp">
+            android:backgroundTint="@color/white"
+            app:cardCornerRadius="24dp">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/puzzle_3x3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="1dp"
-                android:backgroundTint="@color/grey"
-                app:cardCornerRadius="24dp">
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -179,7 +127,8 @@
                     android:layout_gravity="center_horizontal"
                     android:text="3x3"
                     android:textColor="@color/white"
-                    android:textSize="35sp" />
+                    android:textSize="35sp"
+                    tools:ignore="HardcodedText" />
             </androidx.cardview.widget.CardView>
 
         </androidx.cardview.widget.CardView>
@@ -189,7 +138,8 @@
             android:layout_height="50dp"
             android:layout_marginHorizontal="10dp"
             android:layout_weight="1"
-            app:cardCornerRadius="25dp">
+            app:cardCornerRadius="25dp"
+            tools:ignore="TextSizeCheck">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/puzzle_4x4"
@@ -205,24 +155,20 @@
                     android:layout_gravity="center_horizontal"
                     android:text="4x4"
                     android:textColor="@color/white"
-                    android:textSize="35sp" />
+                    android:textSize="35sp"
+                    tools:ignore="HardcodedText" />
             </androidx.cardview.widget.CardView>
 
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="10dp"
-            android:layout_weight="1"
-            app:cardCornerRadius="25dp">
         <androidx.cardview.widget.CardView
             android:id="@+id/puzzle_5x5"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginHorizontal="10dp"
             android:layout_weight="1"
-            app:cardCornerRadius="25dp">
+            app:cardCornerRadius="25dp"
+            tools:ignore="TextSizeCheck">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -237,7 +183,8 @@
                     android:layout_gravity="center_horizontal"
                     android:text="5x5"
                     android:textColor="@color/white"
-                    android:textSize="35sp" />
+                    android:textSize="35sp"
+                    tools:ignore="HardcodedText" />
             </androidx.cardview.widget.CardView>
 
         </androidx.cardview.widget.CardView>

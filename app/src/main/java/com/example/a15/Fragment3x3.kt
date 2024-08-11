@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.a15.databinding.Fragment3x3Binding
@@ -25,19 +24,14 @@ class Fragment3x3 : Fragment(R.layout.fragment_3x3), ItemChangeListener {
         Model(8),
         Model(),
     )
-
-
-
     override fun onItemChange(currentItem: Model, emptyItem: Model) {
         val activity=activity as MainActivity
         activity.finishFragment()
     }
-
     private fun onItemClick(it: Model, emptyModel: Model) {
         puzzleAdapter.changeItem(it, emptyModel)
         puzzleAdapter.changeItem(it,emptyModel)
     }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -46,18 +40,15 @@ class Fragment3x3 : Fragment(R.layout.fragment_3x3), ItemChangeListener {
         binding = Fragment3x3Binding.inflate(layoutInflater)
         return binding.root
     }
+    fun shuffledList(){
+        puzzleAdapter.loadData(puzzleDataList.shuffled())
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val rv = binding.rvMain
         rv.layoutManager = GridLayoutManager(requireContext(), 3)
         rv.adapter = puzzleAdapter
-        puzzleAdapter.loadData(puzzleDataList)
-    }
-
-    fun shuffledList(){
         puzzleAdapter.loadData(puzzleDataList.shuffled())
-        val activity=activity as MainActivity
-        activity.actionFragment3x3()
     }
 }

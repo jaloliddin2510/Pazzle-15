@@ -73,13 +73,11 @@ class Adapter(
         fun bind(model: Model) {
             tvNumber.text = model.number.toString()
 
-            // Ma'lumotlar ro'yxatida bo'sh konteynerni topamiz.
             val emptyCont: Model? = dataListItem.find { it.number == -1 }
 
-            // Element ko'rinishiga OnClickListener o'rnatamiz.
             item.setOnClickListener {
 
-                if (model != emptyCont) {
+                if (emptyCont!=null && model != emptyCont) {
                     when (model.position) {
                         0 -> {
                             if (emptyCont.position == 1 || emptyCont.position == 3) {
