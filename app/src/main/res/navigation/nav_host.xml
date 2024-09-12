@@ -5,9 +5,28 @@
     android:id="@+id/nav_host"
     app:startDestination="@id/fragment3x3">
 
+    <action
+        android:id="@+id/recreate_fragment3x3"
+        app:destination="@id/fragment3x3"
+        app:launchSingleTop="true"
+        app:popUpTo="@id/fragment3x3"
+        app:popUpToInclusive="true"
+        app:popUpToSaveState="false" />
+    <action
+        android:id="@+id/recreate_fragment4x4"
+        app:destination="@id/fragment4x4"
+        app:launchSingleTop="true"
+        app:popUpTo="@id/fragment4x4"
+        app:popUpToSaveState="true" />
+    <action
+        android:id="@+id/recreate_fragment5x5"
+        app:destination="@id/fragment5x5"
+        app:launchSingleTop="true"
+        app:popUpTo="@id/fragment5x5"
+        app:popUpToSaveState="true" />
     <fragment
         android:id="@+id/fragment3x3"
-        android:name="com.example.a15.Fragment3x3"
+        android:name="com.example.a15.ui.Fragment3x3"
         android:label="Fragment3x3"
         tools:layout="@layout/fragment_3x3">
         <action
@@ -16,7 +35,12 @@
     </fragment>
     <fragment
         android:id="@+id/fragment4x4"
-        android:name="com.example.a15.Fragment4x4"
+        android:name="com.example.a15.ui.Fragment4x4"
         android:label="Fragment4x4"
         tools:layout="@layout/fragment_4x4"/>
+    <fragment
+        android:id="@+id/fragment5x5"
+        android:name="com.example.a15.ui.Fragment5x5"
+        android:label="fragment_5x5"
+        tools:layout="@layout/fragment_5x5" />
 </navigation>

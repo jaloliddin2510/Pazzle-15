@@ -1,26 +1,27 @@
-package com.example.a15
+package com.example.a15.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.lifecycle.ViewModel
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.a15.content.ItemChangeListener
+import com.example.a15.content.Model
+import com.example.a15.R
 
-class Adapter(
+class Adapter3x3(
     private val onClick: (model: Model, emptyCont: Model) -> Unit,
     private val listener: ItemChangeListener
-) : RecyclerView.Adapter<Adapter.PuzzleViewHolder>() {
+) : RecyclerView.Adapter<Adapter3x3.PuzzleViewHolder>() {
     val dataListItem = mutableListOf<Model>()
     private lateinit var emptyCont: Model
+    @SuppressLint("NotifyDataSetChanged")
     fun loadData(data: List<Model>) {
         dataListItem.clear()
         dataListItem.addAll(data)
         notifyDataSetChanged()
     }
-
-
     fun changeItem(currentItem: Model, emptyItem: Model) {
         val currentPosition = currentItem.position
         val emptyPosition = emptyItem.position
@@ -30,45 +31,29 @@ class Adapter(
         emptyItem.position = currentPosition
         emptyCont=emptyItem
         if (isFinished()){
-            listener.onItemChange(currentItem,emptyItem)
+            listener.onItemChange()
         }
         notifyItemChanged(currentPosition)
         notifyItemChanged(emptyPosition)
     }
 
-    fun isFinished(): Boolean {
-        var counter=0
+    private fun isFinished(): Boolean {
+        var counter = 0
         for (i in 0 until dataListItem.size) {
-            when(dataListItem[i].number){
-                -1 -> if (dataListItem[i].position == 8) counter += 1
-                1-> if (dataListItem[i].position == 0) counter += 1
-                2-> if (dataListItem[i].position == 1) counter += 1
-                3-> if (dataListItem[i].position == 2) counter += 1
-                4-> if (dataListItem[i].position == 3) counter += 1
-                5-> if (dataListItem[i].position == 4) counter += 1
-                6-> if (dataListItem[i].position == 5) counter += 1
-                7-> if (dataListItem[i].position == 6) counter += 1
-                8-> if (dataListItem[i].position == 7) counter += 1
-
+            if (dataListItem[i].number == -1 && dataListItem[i].position == 8) {
+                counter += 1
+            } else if (dataListItem[i].number == i + 1) {
+                counter += 1
             }
         }
-        if (counter==9){
-            return true
-        }
-        else{
-            return false
-        }
+        return counter == 9
     }
 
 
     inner class PuzzleViewHolder(
         private val item: View
     ) : RecyclerView.ViewHolder(item) {
-        var tvNumber: TextView
-
-        init {
-            tvNumber = item.findViewById(R.id.item_tv)
-        }
+        private var tvNumber: TextView = item.findViewById(R.id.item_tv)
 
         fun bind(model: Model) {
             tvNumber.text = model.number.toString()
@@ -153,7 +138,7 @@ class Adapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PuzzleViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_rv, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_rv_3x3, parent, false)
         return PuzzleViewHolder(itemView)
     }
 

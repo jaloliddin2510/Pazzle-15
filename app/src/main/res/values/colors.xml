@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#000000</color>
+    <color name="black">#212633</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="gold">#FFD700</color>
+    <color name="gray">#E2E1C2</color>
+    <color name="gold">#ffffff</color>
     <color name="sienna">#8B4513</color>
-    <color name="grey">#3E3D3D</color>
-    <color name="transparent1">#2D5B5B5B</color>
+    <color name="grey">#292F3F</color>
+    <color name="pink">#FFC0CB</color>
+    <color name="red">#FF0000</color>
+
+
+
 
 </resources>
